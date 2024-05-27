@@ -1,9 +1,15 @@
 import React from "react";
+import "flowbite/dist/flowbite";
+import Navbar from "./components/Base/Navbar";
+import Sidebar from "./components/Base/Sidebar";
+import Main from "./components/Base/Main";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Navbar />
+      <Sidebar />
+      <Main />
     </>
   );
 }
