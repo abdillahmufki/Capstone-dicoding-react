@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function Breadcrumb() {
+function Breadcrumb({ titleSlug, title }) {
   return (
     <nav
       className="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
@@ -8,12 +9,12 @@ function Breadcrumb() {
     >
       <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
         <li className="inline-flex items-center">
-          <a
-            href="#"
+          <Link
+            to="/edukasi"
             className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
           >
             Edukasi
-          </a>
+          </Link>
         </li>
         <li>
           <div className="flex items-center">
@@ -57,9 +58,12 @@ function Breadcrumb() {
                 d="m1 9 4-4-4-4"
               />
             </svg>
-            <span className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">
-              Judul Blog
-            </span>
+            <Link
+              to={`/edukasi/${titleSlug}`}
+              className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
+            >
+              {title}
+            </Link>
           </div>
         </li>
       </ol>

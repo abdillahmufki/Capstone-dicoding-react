@@ -17,7 +17,7 @@ function Main() {
           <Route path="/bantuan" element={<BantuanPage />} />
           <Route path="/kontak" element={<KontakPage />} />
           <Route path="/tentangkami" element={<TentangKamiPage />} />
-          <Route path="/detail1" element={<DetailBlogPage />} />
+          <Route path="/edukasi/:slug" element={<DetailBlogPage />} />
         </Routes>
       </div>
     </div>
