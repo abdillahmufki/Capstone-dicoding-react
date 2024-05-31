@@ -1,14 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  GoHome,
-  GoBook,
   GoCodeOfConduct,
-  GoMail,
-  GoPeople,
-  GoSignIn,
-  GoSignOut,
 } from "react-icons/go";
+import { FaHouse, FaBookBookmark, FaPersonFallingBurst, FaAddressBook, FaInfo, FaArrowRightToBracket } from "react-icons/fa6";
 
 function Sidebar() {
   return (
@@ -24,7 +19,7 @@ function Sidebar() {
               to="/"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
-              <GoHome className="w-6 h-6" />
+              <FaHouse className="w-5 h-5" />
               <span className="ms-3">Beranda</span>
             </Link>
           </li>
@@ -33,8 +28,17 @@ function Sidebar() {
               to="/edukasi"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
-              <GoBook className="w-6 h-6" />
+              <FaBookBookmark className="w-5 h-5" />
               <span className="flex-1 ms-3 whitespace-nowrap">Edukasi</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/laporan"
+              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <FaPersonFallingBurst className="w-5 h-5" />
+              <span className="flex-1 ms-3 whitespace-nowrap">Laporan Bencana</span>
             </Link>
           </li>
           <li>
@@ -42,8 +46,8 @@ function Sidebar() {
               to="/bantuan"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
-              <GoCodeOfConduct className="w-6 h-6" />
-              <span className="flex-1 ms-3 whitespace-nowrap">Bantuan</span>
+              <GoCodeOfConduct className="w-5 h-5" />
+              <span className="flex-1 ms-3 whitespace-nowrap">Platform Bantuan</span>
             </Link>
           </li>
           <li>
@@ -51,7 +55,7 @@ function Sidebar() {
               to="/kontak"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
-              <GoMail className="w-6 h-6" />
+              <FaAddressBook className="w-5 h-5" />
               <span className="flex-1 ms-3 whitespace-nowrap">Kontak</span>
             </Link>
           </li>
@@ -60,29 +64,21 @@ function Sidebar() {
               to="/tentangkami"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
-              <GoPeople className="w-6 h-6" />
+              <FaInfo className="w-5 h-5" />
               <span className="flex-1 ms-3 whitespace-nowrap">
-                Tentang Kami
+                Tentang
               </span>
             </Link>
           </li>
+          <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
           <li>
-            <a
-              href=""
+            <Link
+              to={'/Login'}
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
-              <GoSignIn className="w-6 h-6" />
-              <span className="flex-1 ms-3 whitespace-nowrap">Sign In</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href=""
-              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-            >
-              <GoSignOut className="w-6 h-6" />
-              <span className="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
-            </a>
+              <FaArrowRightToBracket />
+              <span className="flex-1 ms-3 whitespace-nowrap">Masuk</span>
+            </Link>
           </li>
         </ul>
       </div>
