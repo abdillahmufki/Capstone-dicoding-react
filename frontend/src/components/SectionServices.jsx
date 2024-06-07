@@ -1,21 +1,18 @@
 import React from "react";
 import { FaBullhorn, FaHandshakeSimple } from "react-icons/fa6";
 import { RiEarthquakeFill } from "react-icons/ri";
+import HeaderSection from "./HeaderSection";
 
 function SectionServices() {
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-        <div className="max-w-screen-md mb-8 lg:mb-16 mx-auto">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white text-center">
-            Services
-          </h2>
-          <p className="text-gray-500 sm:text-xl dark:text-gray-400  text-center">
-            We provide up-to-date earthquake reports and comprehensive
+        <HeaderSection
+          title="Services"
+          description=" We provide up-to-date earthquake reports and comprehensive
             information on earthquakes worldwide to help you stay alert and
-            prepared.
-          </p>
-        </div>
+            prepared."
+        />
         <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
           <div className="flex flex-col justify-center items-center text-center">
             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Headline from "../components/Headline";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import Header from "../Layouts/Header";

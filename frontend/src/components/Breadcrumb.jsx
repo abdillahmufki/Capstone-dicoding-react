@@ -10,10 +10,10 @@ function Breadcrumb({ titleSlug, title }) {
       <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
         <li className="inline-flex items-center">
           <Link
-            to="/edukasi"
+            to="/education"
             className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
           >
-            Edukasi
+            Education
           </Link>
         </li>
         <li>
@@ -34,7 +34,7 @@ function Breadcrumb({ titleSlug, title }) {
               />
             </svg>
             <a
-              href="#"
+              href="/education"
               className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white"
             >
               Blog
@@ -59,7 +59,7 @@ function Breadcrumb({ titleSlug, title }) {
               />
             </svg>
             <Link
-              to={`/edukasi/${titleSlug}`}
+              to={`/education/${titleSlug}`}
               className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
             >
               {title}

@@ -3,24 +3,47 @@ import { Link } from "react-router-dom";
 
 function CardBlog({ title, imgUrl, postUrl }) {
   return (
-    <Link
-      to={postUrl}
-      className="flex flex-col bg-white border border-gray-200 rounded-lg shadow md:max-w-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-    >
-      <img
-        className="object-cover w-full rounded-t-lg h-52"
-        src={imgUrl}
-        alt=""
-      />
-      <div className="flex flex-col justify-between p-4 leading-normal">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {title}
-        </h5>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          asdfasdf
-        </p>
+    <div className="p-4 w-full">
+      <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+        <img
+          className="lg:h-48 md:h-36 w-full object-cover object-center"
+          src={imgUrl}
+          alt="blog"
+        />
+        <div className="p-6">
+          <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+            CATEGORY
+          </h2>
+          <h1 className="title-font text-lg font-medium text-gray-900 mb-3 line-clamp-1">
+            {title}
+          </h1>
+          <p className="leading-relaxed mb-3 line-clamp-2">
+            Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+            microdosing tousled waistcoat.
+          </p>
+          <div className="flex items-center flex-wrap ">
+            <Link
+              to={postUrl}
+              className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
+            >
+              Learn More
+              <svg
+                className="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </Link>
+          </div>
+        </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

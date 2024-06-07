@@ -1,20 +1,17 @@
 import React from "react";
+import HeaderSection from "./HeaderSection";
 
 function SectionAbout() {
   return (
     <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <div className="mx-auto max-w-5xl">
-          <div className="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-              About us
-            </h2>
-            <p className="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
-              We are dedicated to delivering accurate and timely information on
-              earthquakes, as well as education that can help communities better
-              prepare for and respond to natural disasters.
-            </p>
-          </div>
+          <HeaderSection
+            title="About us"
+            description="We are dedicated to delivering accurate and timely information on
+          earthquakes, as well as education that can help communities better
+          prepare for and respond to natural disasters."
+          />
           <div className="my-8 xl:mb-16 xl:mt-12">
             <img
               className="w-full h-[500px] object-cover"
