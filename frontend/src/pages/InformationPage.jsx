@@ -32,7 +32,7 @@ function InformationPage() {
   return (
     <>
       <Header />
-      <div className="bg-white dark:bg-gray-900 mt-16">
+      <div className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <PageHeader
             pageName="Data Earthquake"
@@ -141,12 +141,9 @@ function InformationPage() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-
-      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
 
       <Footer />
-
     </>
   );
 }

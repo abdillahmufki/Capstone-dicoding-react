@@ -7,7 +7,7 @@ function ReportPage() {
   return (
     <>
       <Header />
-      <div className="bg-white dark:bg-gray-900  mt-16">
+      <div className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <PageHeader
             pageName="Earthquake Reports"

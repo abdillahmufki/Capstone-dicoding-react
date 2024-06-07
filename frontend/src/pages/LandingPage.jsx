@@ -11,7 +11,7 @@ function LandingPage() {
   return (
     <>
       <Header />
-      <main className="mt-16">
+      <main>
         <SectionHero />
         <SectionServices />
         <SectionEducation />

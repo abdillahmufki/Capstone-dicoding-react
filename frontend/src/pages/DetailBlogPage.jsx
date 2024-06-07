@@ -7,6 +7,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import { PortableText } from "@portabletext/react";
 import NewArticleList from "../components/NewArticleList";
 import { urlFor } from "../sanityImageUrl";
+import Loader from "../components/Loader";
 
 async function getData(slug) {
   try {
@@ -63,13 +64,13 @@ function DetailBlogPage() {
       <Header />
       {!detailPost ? (
         <div className="bg-white dark:bg-gray-900">
-          <div className="py-8 px-4 mx-auto max-w-screen-xl min-h-screen sm:py-16 lg:px-6 mt-16 flex items-center justify-center">
-            <div>Loading...</div>
+          <div className="py-8 px-4 mx-auto max-w-screen-xl min-h-screen sm:py-16 lg:px-6 flex items-center justify-center">
+            <Loader />
           </div>
         </div>
       ) : (
         <div className="bg-white dark:bg-gray-900">
-          <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 mt-16">
+          <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
             <div className="container max-w-5xl gap-5 mx-auto grid grid-cols-4 md:grid-cols-12 mb:my-8">
               <article className="rounded-2xl bg-white dark:bg-slate-800 divide-y col-span-12 lg:col-span-8 w-full justify-center flex-col dark:text-white text-black">
                 <Breadcrumb

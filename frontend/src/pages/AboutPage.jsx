@@ -7,7 +7,7 @@ function AboutPage() {
   return (
     <>
       <Header />
-      <section className="bg-white pt-8 antialiased dark:bg-gray-900 md:py-16 mt-16">
+      <section className="bg-white pt-8 antialiased dark:bg-gray-900 md:py-16">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
           <div className="mx-auto max-w-5xl">
             <PageHeader

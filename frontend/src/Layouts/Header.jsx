@@ -1,13 +1,13 @@
 "use client";
 
-import { Navbar, Dropdown } from 'flowbite-react';
+import { Navbar, Dropdown } from "flowbite-react";
 import { WiEarthquake } from "react-icons/wi";
 import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <Navbar fluid rounded>
-      <Link to={'/'}>
+      <Link to={"/"}>
         <Navbar.Brand>
           <WiEarthquake className="w-8 h-8" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
@@ -25,7 +25,7 @@ function Header() {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Link to={'/'}>
+        <Link to={"/"}>
           <Navbar.Link className="block py-2 px-3 hover:bg-blue-700 hover:text-white text-black bg-transparent rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">
             Home
           </Navbar.Link>
@@ -38,20 +38,20 @@ function Header() {
             <Link to="/report">Earthquake Reports</Link>
           </Dropdown.Item>
           <Dropdown.Item>
-            <Link to={'/donation'}>Donation Platform</Link>
+            <Link to={"/donation"}>Donation Platform</Link>
           </Dropdown.Item>
         </Dropdown>
-        <Link to={'/education'}>
+        <Link to={"/education"}>
           <Navbar.Link className="block py-2 px-3 hover:bg-blue-700 hover:text-white text-black bg-transparent rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">
             Education
           </Navbar.Link>
         </Link>
-        <Link to={'/contact'}>
+        <Link to={"/contact"}>
           <Navbar.Link className="block py-2 px-3 hover:bg-blue-700 hover:text-white text-black bg-transparent rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">
             Contact
           </Navbar.Link>
         </Link>
-        <Link to={'/about'}>
+        <Link to={"/about"}>
           <Navbar.Link className="block py-2 px-3 hover:bg-blue-700 hover:text-white text-black bg-transparent rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">
             About
           </Navbar.Link>

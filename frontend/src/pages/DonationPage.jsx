@@ -47,7 +47,7 @@ function DonationPage() {
     <>
       <Header />
       <div className="bg-white dark:bg-gray-900">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6  mt-16">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <PageHeader
             pageName="Donation Platform"
             pageDescription="Make a difference by contributing to earthquake relief efforts. Our donation platform allows you to support communities affected by earthquakes, funding emergency response, recovery initiatives, and rebuilding projects to help those in need."
