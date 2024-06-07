@@ -32,7 +32,7 @@ function DonationPage() {
             pageName="Donation Platform"
             pageDescription="Make a difference by contributing to earthquake relief efforts. Our donation platform allows you to support communities affected by earthquakes, funding emergency response, recovery initiatives, and rebuilding projects to help those in need."
           />
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-4 mt-10">
             {platformDonation.map((platform) => (
               <CardBantuan
                 key={platform.name}
