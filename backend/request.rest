@@ -1,0 +1,25 @@
+GET http://localhost:4000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJSYWloYW4gSCIsImVtYWlsIjoiZW1haWxAZ21haWwuY29tIiwiaWF0IjoxNzE3OTgyNzEwLCJleHAiOjE3MTc5ODI3MzB9.0k1-BZTAfpyLNyWmzXwHJiH2HlKzGQ3hsafIbmzp5b4
+
+###
+POST http://localhost:4000/users
+Content-Type: application/json
+
+{
+    "name": "Kariss",
+    "email": "emailK@gmail.com",
+    "password": "123456",
+    "confPassword": "123457"
+}
+
+###
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "email": "email@gmail.com",
+    "password": "123456"
+}
+
+###
+GET http://localhost:4000/token
