@@ -1,12 +1,9 @@
 import React from "react";
-import Header from "../Layouts/Header";
-import Footer from "../Layouts/Footer";
 import PageHeader from "../components/PageHeader";
 
 function AboutPage() {
   return (
-    <>
-      <Header />
+    <main>
       <section className="bg-white pt-8 antialiased dark:bg-gray-900 md:py-16">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
           <div className="mx-auto max-w-5xl">
@@ -73,8 +70,7 @@ function AboutPage() {
           </div>
         </div>
       </section>
-      <Footer />
-    </>
+    </main>
   );
 }
 

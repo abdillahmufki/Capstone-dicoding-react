@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-import Header from "../Layouts/Header";
-import Footer from "../Layouts/Footer";
+import "react-toastify/dist/ReactToastify.css";
 import PageHeader from "../components/PageHeader";
 
 function ContactPage() {
@@ -19,9 +17,8 @@ function ContactPage() {
   }, [state.succeeded, alertShown, resetForm]);
 
   return (
-    <>
+    <main>
       <ToastContainer />
-      <Header />
       <section className="bg-white dark:bg-gray-900 mt-16">
         <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
           <PageHeader
@@ -44,7 +41,11 @@ function ContactPage() {
                 placeholder="Masukkan nama anda"
                 required
               />
-              <ValidationError prefix="Name" field="name" errors={state.errors} />
+              <ValidationError
+                prefix="Name"
+                field="name"
+                errors={state.errors}
+              />
             </div>
             <div>
               <label
@@ -61,7 +62,11 @@ function ContactPage() {
                 placeholder="Masukkan email anda"
                 required
               />
-              <ValidationError prefix="Email" field="email" errors={state.errors} />
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={state.errors}
+              />
             </div>
             <div>
               <label
@@ -80,8 +85,12 @@ function ContactPage() {
                   Pilih kategori pesan atau saran ingin kamu sampaikan
                 </option>
                 <option value="saran">Saran</option>
-                <option value="Pesan atau permintaan fitur">Pesan atau permintaan fitur</option>
-                <option value="Keluhan dan perbaikan">Keluhan dan perbaikan</option>
+                <option value="Pesan atau permintaan fitur">
+                  Pesan atau permintaan fitur
+                </option>
+                <option value="Keluhan dan perbaikan">
+                  Keluhan dan perbaikan
+                </option>
                 <option value="Kerjasama mitra">Kerjasama mitra</option>
                 <option value="Lainnya">Lainnya</option>
               </select>
@@ -100,7 +109,11 @@ function ContactPage() {
                 placeholder="Tuliskan pesan anda ..."
                 name="message"
               />
-              <ValidationError prefix="Message" field="message" errors={state.errors} />
+              <ValidationError
+                prefix="Message"
+                field="message"
+                errors={state.errors}
+              />
             </div>
             <div className="sm:col-span-2">
               <button
@@ -114,8 +127,7 @@ function ContactPage() {
           </form>
         </div>
       </section>
-      <Footer />
-    </>
+    </main>
   );
 }
 

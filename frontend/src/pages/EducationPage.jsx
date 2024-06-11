@@ -2,8 +2,6 @@ import React from "react";
 import CardBlog from "../components/CardBlog";
 import { useState, useEffect } from "react";
 import { client } from "../client";
-import Header from "../Layouts/Header";
-import Footer from "../Layouts/Footer";
 import PageHeader from "../components/PageHeader";
 import { urlFor } from "../sanityImageUrl";
 import Loader from "../components/Loader";
@@ -26,8 +24,7 @@ function EducationPage() {
   }, []);
 
   return (
-    <>
-      <Header />
+    <main>
       {!datas ? (
         <div className="bg-white dark:bg-gray-900">
           <div className="py-8 px-4 mx-auto max-w-screen-xl min-h-screen sm:py-16 lg:px-6 flex items-center justify-center">
@@ -55,8 +52,7 @@ function EducationPage() {
           </div>
         </div>
       )}
-      <Footer />
-    </>
+    </main>
   );
 }
 

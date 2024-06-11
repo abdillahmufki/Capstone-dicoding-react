@@ -1,12 +1,9 @@
 import FormLaporanUser from "../components/FormLaporanGempa";
-import Header from "../Layouts/Header";
-import Footer from "../Layouts/Footer";
 import PageHeader from "../components/PageHeader";
 
 function ReportPage() {
   return (
-    <>
-      <Header />
+    <main>
       <div className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <PageHeader
@@ -16,8 +13,7 @@ function ReportPage() {
           <FormLaporanUser />
         </div>
       </div>
-      <Footer />
-    </>
+    </main>
   );
 }
 

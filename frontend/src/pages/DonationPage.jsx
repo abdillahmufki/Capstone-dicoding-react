@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import CardBantuan from "../components/CardBantuan";
-import Header from "../Layouts/Header";
-import Footer from "../Layouts/Footer";
 import PageHeader from "../components/PageHeader";
 import { client } from "../client";
 import { urlFor } from "../sanityImageUrl";
@@ -25,8 +23,7 @@ function DonationPage() {
   }, []);
 
   return (
-    <>
-      <Header />
+    <main>
       {!platformDonation ? (
         <div className="bg-white dark:bg-gray-900">
           <div className="py-8 px-4 mx-auto max-w-screen-xl min-h-screen sm:py-16 lg:px-6 flex items-center justify-center">
@@ -54,8 +51,7 @@ function DonationPage() {
           </div>
         </div>
       )}
-      <Footer />
-    </>
+    </main>
   );
 }
 
