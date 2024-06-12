@@ -18,10 +18,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<LandingPage />} />
-        <Route path="information" element={<InformationPage />} />
+        <Route path="earthquake-information" element={<InformationPage />} />
+        <Route path="earthquake-reports" element={<ReportPage />} />
+        <Route path="donation-platform" element={<DonationPage />} />
         <Route path="education" element={<EducationPage />} />
-        <Route path="donation" element={<DonationPage />} />
-        <Route path="report" element={<ReportPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="education/:slug" element={<DetailBlogPage />} />
