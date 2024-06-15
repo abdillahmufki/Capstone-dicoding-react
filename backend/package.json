@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -17,7 +17,12 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+<<<<<<< HEAD
     "mysql2": "^3.9.8",
+=======
+    "jwt-decode": "^4.0.0",
+    "mysql2": "^3.10.0",
+>>>>>>> 0725f19101f7ecc7c07562d31d6c8786960feffa
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
