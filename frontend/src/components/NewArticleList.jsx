@@ -1,41 +1,17 @@
 import React, { useEffect, useState } from "react";
 import NewArticleCard from "./NewArticleCard";
-import { client } from "../client";
+import { getBlogPosts } from "../utils/sanityAPI";
+import { urlFor } from "../sanityImageUrl";
 
 function NewArticleList() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPost] = useState([]);
 
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "post-blog"]{
-          title,
-          slug {
-            current
-          },
-          author,
-          image {
-            asset->{
-              _id,
-              url
-            }
-          },
-          publishedAt,
-          body[]{
-            ...,
-            _type == "image" => {
-              asset->{
-                _id,
-                url
-              }
-            }
-          },
-          link,
-          tags
-        }`
-      )
-      .then((data) => setPosts(data))
-      .catch(console.error);
+    async function fetchData() {
+      const blogData = await getBlogPosts();
+      setPost(blogData);
+    }
+    fetchData();
   }, []);
 
   return (
@@ -45,7 +21,7 @@ function NewArticleList() {
           key={post.slug.current}
           postUrl={`/education/${post.slug.current}`}
           title={post.title}
-          imgUrl={post.image.asset.url}
+          imgUrl={urlFor(post.image).url()}
           publishedAt={new Date(post?.publishedAt).toLocaleDateString()}
         />
       ))}

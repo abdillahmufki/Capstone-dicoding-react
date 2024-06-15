@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import PageHeader from "../components/PageHeader";
 
 function ContactPage() {
-  const [state, handleSubmit, resetForm] = useForm("xwkgdjlg"); // Ganti dengan ID formulir Anda
+  const [state, handleSubmit, resetForm] = useForm("xwkgdjlg");
   const [alertShown, setAlertShown] = useState(false);
 
   useEffect(() => {
@@ -19,8 +19,8 @@ function ContactPage() {
   return (
     <main>
       <ToastContainer />
-      <section className="bg-white dark:bg-gray-900 mt-16">
-        <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+      <section className="bg-white dark:bg-gray-900">
+        <div className="mx-auto sm:px-6 lg:py-20 max-w-4xl px-6 py-12 sm:py-16">
           <PageHeader
             pageName="Contact Us"
             pageDescription="Do you have a problem? Provide suggestions and criticism so that we continue to develop and get better by filling in the form below."

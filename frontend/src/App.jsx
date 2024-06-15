@@ -12,6 +12,7 @@ import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import DetailBlogPage from "./pages/DetailBlogPage";
 import Layout from "./Layouts/Layout";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

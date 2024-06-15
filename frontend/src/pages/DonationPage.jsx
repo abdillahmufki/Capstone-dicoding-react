@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from "react";
 import CardBantuan from "../components/CardBantuan";
 import PageHeader from "../components/PageHeader";
-import { client } from "../client";
 import { urlFor } from "../sanityImageUrl";
 import Loader from "../components/Loader";
-
-async function getBlogPosts() {
-  const query = `*[_type == "post-donation"]`;
-  const data = await client.fetch(query);
-  return data;
-}
+import { getDonationPosts } from "../utils/sanityAPI";
 
 function DonationPage() {
   const [platformDonation, setPlatformDonation] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const platformData = await getBlogPosts();
+      const platformData = await getDonationPosts();
       setPlatformDonation(platformData);
     }
     fetchData();
@@ -24,7 +18,7 @@ function DonationPage() {
 
   return (
     <main>
-      {!platformDonation ? (
+      {platformDonation.length === 0 ? (
         <div className="bg-white dark:bg-gray-900">
           <div className="py-8 px-4 mx-auto max-w-screen-xl min-h-screen sm:py-16 lg:px-6 flex items-center justify-center">
             <Loader />
@@ -32,7 +26,7 @@ function DonationPage() {
         </div>
       ) : (
         <div className="bg-white dark:bg-gray-900">
-          <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+          <div className="mx-auto sm:px-6 lg:py-20 max-w-screen-xl px-6 py-12 sm:py-16">
             <PageHeader
               pageName="Donation Platform"
               pageDescription="Make a difference by contributing to earthquake relief efforts. Our donation platform allows you to support communities affected by earthquakes, funding emergency response, recovery initiatives, and rebuilding projects to help those in need."

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 function SectionHero() {
   return (
     <section className="bg-white dark:bg-gray-900">
-      {/* <div className="grid min-h-[calc(100vh-68px)] max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"> */}
       <div className="min-h-[calc(100vh-68px)] container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
         <div className="w-full lg:w-1/2 p-6">
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
@@ -15,7 +14,7 @@ function SectionHero() {
             rely on our platform to stay prepared and safe.
           </p>
           <Link
-            to="/information"
+            to="/earthquake-information"
             className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
           >
             Get Information
@@ -33,7 +32,7 @@ function SectionHero() {
             </svg>
           </Link>
           <Link
-            to="/report"
+            to="/earthquake-reports"
             className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
           >
             Report Earthquake
