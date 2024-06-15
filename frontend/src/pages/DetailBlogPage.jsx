@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Header from "../Layouts/Header";
-import Footer from "../Layouts/Footer";
 import { useParams } from "react-router-dom";
 import { client } from "../client";
 import Breadcrumb from "../components/Breadcrumb";
@@ -60,8 +58,7 @@ function DetailBlogPage() {
   }, [slug]);
 
   return (
-    <>
-      <Header />
+    <main>
       {!detailPost ? (
         <div className="bg-white dark:bg-gray-900">
           <div className="py-8 px-4 mx-auto max-w-screen-xl min-h-screen sm:py-16 lg:px-6 flex items-center justify-center">
@@ -71,8 +68,8 @@ function DetailBlogPage() {
       ) : (
         <div className="bg-white dark:bg-gray-900">
           <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-            <div className="container max-w-5xl gap-5 mx-auto grid grid-cols-4 md:grid-cols-12 mb:my-8">
-              <article className="rounded-2xl bg-white dark:bg-slate-800 divide-y col-span-12 lg:col-span-8 w-full justify-center flex-col dark:text-white text-black">
+            <div className="flex flex-wrap flex-col md:flex-row min-h-screen">
+              <article className="w-full md:w-8/12 rounded md:p-4">
                 <Breadcrumb
                   titleSlug={detailPost?.slug?.current}
                   title={detailPost?.title}
@@ -100,7 +97,7 @@ function DetailBlogPage() {
                   />
                 </div>
               </article>
-              <aside className="px-4 md:px-8 md:pl-4 md:pr-0 lg:pl-8 lg:pr-0 mt-8 lg:mt-0 col-span-12 lg:col-span-4">
+              <aside className="w-full md:w-4/12 md:p-4 h-full">
                 <div className="h-max rounded-2xl bg-white dark:bg-slate-800 w-auto">
                   <header>
                     <h1 className="text-2xl font-bold p-4 tracking-tight dark:text-white dark:border-slate-700">
@@ -114,8 +111,7 @@ function DetailBlogPage() {
           </div>
         </div>
       )}
-      <Footer />
-    </>
+    </main>
   );
 }
 

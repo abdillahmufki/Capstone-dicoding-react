@@ -3,23 +3,17 @@ import SectionHero from "../components/SectionHero";
 import SectionServices from "../components/SectionServices";
 import SectionEducation from "../components/SectionEducation";
 import SectionContact from "../components/SectionContact";
-import SectionAbout from "../components/SectionAbout";
-import Header from "../Layouts/Header";
-import Footer from "../Layouts/Footer";
+import SectionFAQ from "../components/SectionFAQ";
 
 function LandingPage() {
   return (
-    <>
-      <Header />
-      <main>
-        <SectionHero />
-        <SectionServices />
-        <SectionEducation />
-        <SectionContact />
-        <SectionAbout />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <SectionHero />
+      <SectionServices />
+      <SectionEducation />
+      <SectionContact />
+      <SectionFAQ />
+    </main>
   );
 }
 

@@ -11,20 +11,25 @@ import ReportPage from "./pages/ReportPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import DetailBlogPage from "./pages/DetailBlogPage";
+import Layout from "./Layouts/Layout";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/information" element={<InformationPage />} />
-      <Route path="/education" element={<EducationPage />} />
-      <Route path="/donation" element={<DonationPage />} />
-      <Route path="/report" element={<ReportPage />} />
-      <Route path="/contact" element={<ContactPage />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/education/:slug" element={<DetailBlogPage />} />
+      <Route path="/" element={<Layout />}>
+        <Route index element={<LandingPage />} />
+        <Route path="earthquake-information" element={<InformationPage />} />
+        <Route path="earthquake-reports" element={<ReportPage />} />
+        <Route path="donation-platform" element={<DonationPage />} />
+        <Route path="education" element={<EducationPage />} />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="education/:slug" element={<DetailBlogPage />} />
+      </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

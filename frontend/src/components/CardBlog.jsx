@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function CardBlog({ title, imgUrl, postUrl }) {
+function CardBlog({ title, imgUrl, postUrl, body }) {
+  const excerpt = body && body.length > 0 ? body[0].children[0].text : "";
   return (
     <div className="p-4 w-full">
       <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
@@ -11,16 +12,10 @@ function CardBlog({ title, imgUrl, postUrl }) {
           alt="blog"
         />
         <div className="p-6">
-          <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-            CATEGORY
-          </h2>
           <h1 className="title-font text-lg font-medium text-gray-900 mb-3 line-clamp-1">
             {title}
           </h1>
-          <p className="leading-relaxed mb-3 line-clamp-2">
-            Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
-            microdosing tousled waistcoat.
-          </p>
+          <p className="leading-relaxed mb-3 line-clamp-2">{excerpt}</p>
           <div className="flex items-center flex-wrap ">
             <Link
               to={postUrl}

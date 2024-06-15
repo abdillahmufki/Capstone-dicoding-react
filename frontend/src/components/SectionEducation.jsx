@@ -1,42 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { client } from "../client";
 import CardBlog from "./CardBlog";
 import HeaderSection from "./HeaderSection";
+import { urlFor } from "../sanityImageUrl";
+import { getBlogPosts } from "../utils/sanityAPI";
 
 function SectionEducation() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "post-blog"]{
-          title,
-          slug {
-            current
-          },
-          author,
-          image {
-            asset->{
-              _id,
-              url
-            }
-          },
-          publishedAt,
-          body[]{
-            ...,
-            _type == "image" => {
-              asset->{
-                _id,
-                url
-              }
-            }
-          },
-          link,
-          tags
-        }`
-      )
-      .then((data) => setPosts(data))
-      .catch(console.error);
+    async function fetchData() {
+      const blogData = await getBlogPosts();
+      setPosts(blogData);
+    }
+    fetchData();
   }, []);
 
   return (
@@ -55,7 +31,8 @@ function SectionEducation() {
                   key={post.slug.current}
                   postUrl={`/education/${post.slug.current}`}
                   title={post.title}
-                  imgUrl={post.image.asset.url}
+                  imgUrl={urlFor(post.image).url()}
+                  body={post.body}
                 />
               ))}
             </div>
