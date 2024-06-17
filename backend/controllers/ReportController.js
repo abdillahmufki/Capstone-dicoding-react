@@ -25,7 +25,6 @@ export const createReport = async (req, res) => {
       description,
       longitude,
       latitude,
-      date,
       strength,
       address,
     });

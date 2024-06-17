@@ -21,9 +21,6 @@ const Report = db.define("Report", {
     defaultValue: "0.0", // Example default value
     allowNull: false,
   },
-  date: {
-    type: DataTypes.DATE,
-  },
   strength: {
     type: DataTypes.STRING,
     allowNull: false,
