@@ -54,7 +54,22 @@ function FormLaporanUser() {
   const [address, setAddress] = useState("");
   const [magnitude, setMagnitude] = useState("");
   const [deskripsi, setDeskripsi] = useState("");
+  const [token, setToken] = useState("");
 
+  useEffect(() => {
+    refreshToken();
+  }, []);
+
+  const refreshToken = async () => {
+    try {
+      const response = await axios.get("http://localhost:4000/token", {
+        withCredentials: true,
+      });
+      setToken(response.data.accessToken);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -67,14 +82,32 @@ function FormLaporanUser() {
     };
 
     try {
-      // Langkah 3: Menggunakan Axios untuk mengirim data
-      const response = await axios.post('http://localhost:4000/reports', entry);
+      const response = await axios.post(
+        "http://localhost:4000/reports",
+        entry,
+        {
+          withCredentials: true,
+        }
+      );
       console.log("Data berhasil ditambahkan:", response.data);
-      // console.log("Data entry", entry);
-      // Opsi: Tambahkan logika untuk membersihkan form atau memberikan feedback ke pengguna
     } catch (error) {
       console.error("Terjadi kesalahan saat mengirim data:", error);
-      // Opsi: Tambahkan logika untuk menangani error
+    }
+
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/reports",
+        entry,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
+      console.log("Data berhasil ditambahkan:", response.data);
+    } catch (error) {
+      console.error("Terjadi kesalahan saat mengirim data:", error);
     }
   };
 
