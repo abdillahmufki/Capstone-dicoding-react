@@ -3,18 +3,10 @@ import Report from "../models/ReportModel.js";
 
 export const createReport = async (req, res) => {
   try {
-    const { description, longitude, latitude, date, strength, address } =
-      req.body;
+    const { description, longitude, latitude, strength, address } = req.body;
 
     // Validate required fields
-    if (
-      !description ||
-      !longitude ||
-      !latitude ||
-      !date ||
-      !strength ||
-      !address
-    ) {
+    if (!description || !longitude || !latitude || !strength || !address) {
       return res
         .status(400)
         .json({ error: "Please provide all required fields" });
