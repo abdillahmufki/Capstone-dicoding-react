@@ -1,11 +1,24 @@
 GET http://localhost:4000/users
+<<<<<<< HEAD
+
+###
+
+=======
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJSYWloYW4gSCIsImVtYWlsIjoiZW1haWxAZ21haWwuY29tIiwiaWF0IjoxNzE3OTgzNjk4LCJleHAiOjE3MTc5ODM3MTN9.sMJB922M2IlQkohWfxI_mlukz4aRJWLUs4sq1Yn8zM8
 
 ###
+>>>>>>> 0725f19101f7ecc7c07562d31d6c8786960feffa
 POST http://localhost:4000/users
 Content-Type: application/json
 
 {
+<<<<<<< HEAD
+    "name": "admin2",
+    "email": "admin2@gmail.com",
+    "password": "admin",
+    "confPassword":"admin"
+}
+=======
     "name": "Kariss",
     "email": "emailK@gmail.com",
     "password": "123456",
@@ -26,3 +39,4 @@ GET http://localhost:4000/token
 
 ###
 DELETE  http://localhost:4000/logout
+>>>>>>> 0725f19101f7ecc7c07562d31d6c8786960feffa

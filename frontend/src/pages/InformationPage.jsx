@@ -25,11 +25,11 @@ function InformationPage() {
               pageName="Information Earthquake"
               pageDescription="Stay informed with the latest updates and comprehensive data on earthquakes worldwide. Our platform provides real-time alerts, historical data, and detailed analysis to help you understand and prepare for seismic events."
             />
-            <div className="w-full md:w-8/12 h-[400px] rounded md:p-4">
+            <div className="w-full md:w-8/12 h-[400px] md:h-auto rounded md:p-4">
               <MapContainer
                 center={[-0.789275, 113.921327]}
                 zoom={4}
-                className="md:h-[calc(100vh-180px)] z-10 rounded"
+                className="h-full md:h-[calc(100vh-180px)] z-10 rounded"
               >
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 {data &&
@@ -61,7 +61,7 @@ function InformationPage() {
               </MapContainer>
             </div>
             <div className="w-full md:w-4/12 md:p-4 h-full">
-              <div className="md:h-[calc(100vh-180px)] overflow-y-scroll flex flex-col gap-2">
+              <div className="h-[400px] md:h-[calc(100vh-180px)] overflow-y-scroll flex flex-col gap-2">
                 {data &&
                   data.Infogempa.gempa.map((earthquake, index) => (
                     <EarthquakeItem

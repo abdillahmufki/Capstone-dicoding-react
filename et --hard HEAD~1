@@ -1,0 +1,247 @@
+[33mcommit cc75cbfd5bb82d4674d925d94afec5319b081666[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Author: abdillahmufki <abdillahmufky123@gmail.com>
+Date:   Sat Jun 15 22:09:19 2024 +0700
+
+    fix conflict
+
+[33mcommit 987bcc08c33db6908ee497cf294ce18407904bc1[m
+Author: abdillahmufki <abdillahmufky123@gmail.com>
+Date:   Sat Jun 15 21:49:01 2024 +0700
+
+    fix conflict
+
+[33mcommit 1d1d2c0560a95cd942fdea9f544370c4688fd176[m
+Merge: 00280c1 0725f19
+Author: abdillahmufki <abdillahmufky123@gmail.com>
+Date:   Sat Jun 15 21:48:20 2024 +0700
+
+    fix conflict
+
+[33mcommit 0725f19101f7ecc7c07562d31d6c8786960feffa[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Sat Jun 15 09:01:53 2024 +0700
+
+    add avatar for login
+
+[33mcommit 5ae5e3fd246451ada1645f95ce4895b0a797d188[m
+Merge: 5ae0463 3d55624
+Author: invfaker <dakun340@gmail.com>
+Date:   Sat Jun 15 08:56:11 2024 +0700
+
+    Merge branch 'dev' of https://github.com/abdillahmufki/Capstone-dicoding-react into dev
+
+[33mcommit 5ae0463e6a24d1d97aa0aa3c5b65ad25e37cbd12[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Sat Jun 15 08:54:08 2024 +0700
+
+    fix all content page
+
+[33mcommit 3d55624e847345833d1c3389a6afc2e0416b3604[m
+Author: Hula-Hula <fachry150503@gmail.com>
+Date:   Fri Jun 14 15:17:51 2024 +0700
+
+    update card gempa
+
+[33mcommit 7d47efd1d155003757f410d6af1e4b65d910e706[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Wed Jun 12 08:45:42 2024 +0700
+
+    fix header and router
+
+[33mcommit 0e5f3b8e281f76b0b3725101eaa6246c61d7ea74[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Tue Jun 11 11:07:49 2024 +0700
+
+    style: change donation page
+
+[33mcommit ff98ecf6c034a6d38c66771ea17f681f0b468c5b[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Tue Jun 11 10:48:45 2024 +0700
+
+    add layout & fitur auth
+
+[33mcommit eef16a9dc1131d5881f63d5bc5002b2a3638f596[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Tue Jun 11 10:47:32 2024 +0700
+
+    git ignore request.rest
+
+[33mcommit 39d681d8b63414b13f3e966b075a5b01237d465c[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Mon Jun 10 10:41:41 2024 +0700
+
+    auth backend
+
+[33mcommit 00280c13a15209a7d15bfdaff34d2f20b2ace004[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 79a188e 30e6e2b
+Author: abdillahmufki <abdillahmufky123@gmail.com>
+Date:   Mon Jun 10 09:14:55 2024 +0700
+
+    update backend
+
+[33mcommit 79a188e30d0c4800c756dcfa5d957aa3e4f84f7e[m
+Author: abdillahmufki <abdillahmufky123@gmail.com>
+Date:   Mon Jun 10 09:12:55 2024 +0700
+
+    update backend
+
+[33mcommit 95c25c7dffab5f201e8b34880b0bb0d3de7c77a2[m
+Author: Hula-Hula <fachry150503@gmail.com>
+Date:   Fri Jun 7 21:01:11 2024 +0700
+
+    update info gempa bmkg and contact
+
+[33mcommit 4d510a50c7bbd81f773b621bfd79663fa0ace5b3[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Fri Jun 7 18:46:41 2024 +0700
+
+    add: schema donation
+
+[33mcommit 19b9dd2393d6ab16b84f27e24c174c6fe51fee4a[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Fri Jun 7 11:56:48 2024 +0700
+
+    del: padding & add: loader
+
+[33mcommit 8865f8234e81bf100162e56274dc3908b6b44fc6[m
+Merge: 15b4e4a bba6bd2
+Author: invfaker <dakun340@gmail.com>
+Date:   Fri Jun 7 08:01:51 2024 +0700
+
+    Merge branch 'dev' of https://github.com/abdillahmufki/Capstone-dicoding-react into dev
+
+[33mcommit 15b4e4aef4a1e589c0fe4446a883a553da62c20c[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Fri Jun 7 07:52:54 2024 +0700
+
+    fix style detail article
+
+[33mcommit bba6bd251e2634b6255e2b1c99d289245ae37aa2[m
+Author: Hula-Hula <fachry150503@gmail.com>
+Date:   Thu Jun 6 15:29:16 2024 +0700
+
+    update_navbar infomap on going
+
+[33mcommit 4b5dbf90ea591fafae1fab64853116e47ca4db42[m
+Author: abdillahmufki <abdillahmufky123@gmail.com>
+Date:   Mon Jun 3 20:48:56 2024 +0700
+
+    test
+
+[33mcommit 30e6e2b1ce27ddf8dad23a7a02b359cee5b45967[m
+Merge: 9dbe4fd d42a5f0
+Author: Abdillah Mufki Auzan Mubin <93027141+abdillahmufki@users.noreply.github.com>
+Date:   Mon Jun 3 20:46:14 2024 +0700
+
+    Merge pull request #3 from abdillahmufki/dev
+    
+    add:landingpage & delt:dashboard
+
+[33mcommit f250b3d36bbcc6f63484307b6523012164e96605[m
+Merge: 9dbe4fd d42a5f0
+Author: abdillahmufki <abdillahmufky123@gmail.com>
+Date:   Mon Jun 3 20:44:55 2024 +0700
+
+    Merge branch 'dev' of https://github.com/abdillahmufki/Capstone-dicoding-react into dev
+
+[33mcommit d42a5f06f2f9e2a117da53b12108e5eb92e53358[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Mon Jun 3 20:17:44 2024 +0700
+
+    add:landingpage & delt:dashboard
+
+[33mcommit 9dbe4fd4daea77def94353657da9a3aaf8ce8f3a[m
+Merge: 1c95310 aa2e9f2
+Author: Abdillah Mufki Auzan Mubin <93027141+abdillahmufki@users.noreply.github.com>
+Date:   Mon Jun 3 20:14:19 2024 +0700
+
+    Merge pull request #2 from abdillahmufki/dev
+    
+    progress backend & frontend
+
+[33mcommit aa2e9f250bc89bf03196a024ae821454085b98a1[m
+Author: Hula-Hula <fachry150503@gmail.com>
+Date:   Fri May 31 21:33:07 2024 +0700
+
+    update map home
+
+[33mcommit f45b761ca330cde2f13daf488004f9a3142b8d3c[m
+Author: Hula-Hula <fachry150503@gmail.com>
+Date:   Fri May 31 20:31:22 2024 +0700
+
+    fixing
+
+[33mcommit 8aaa66bedd3de0db01ed19f04df49c40b8148b4b[m
+Author: Hula-Hula <fachry150503@gmail.com>
+Date:   Fri May 31 20:07:29 2024 +0700
+
+    update
+
+[33mcommit 7bb6a22cc0ae221fd9b2f0655b81eb8cd7817776[m
+Author: Hula-Hula <fachry150503@gmail.com>
+Date:   Fri May 31 20:05:48 2024 +0700
+
+    update all menu -Finishing Bantuan Menu dan Uncompleted Home
+
+[33mcommit 019168b92629e3928adaf484ca525090ab01046e[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Thu May 30 09:19:41 2024 +0700
+
+    add sanity for edukasi
+
+[33mcommit 093211178af2abb9817af86159474f822fba4029[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Tue May 28 05:34:49 2024 +0700
+
+    fix: screen reponsive
+
+[33mcommit 9186dc1de2d7ee0ae225759f06a620302bc10335[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Tue May 28 05:33:31 2024 +0700
+
+    add: package react-router-dom
+
+[33mcommit e59a749b8d676bbd25e823651135b4f83916de29[m
+Author: Hula-Hula <fachry150503@gmail.com>
+Date:   Mon May 27 23:35:17 2024 +0700
+
+    tambahan view and pages
+
+[33mcommit a6b16ef958475d4b233e02f8b2194d11184504fd[m
+Author: invfaker <dakun340@gmail.com>
+Date:   Mon May 27 22:34:04 2024 +0700
+
+    first commit frontend
+
+[33mcommit 7840f819740cb962a79ce6f04a9f4d1f89d5187c[m
+Author: Abdillah Mufki Auzan Mubin <abdillah.mufki@widyatama.ac.id>
+Date:   Mon May 27 21:56:47 2024 +0700
+
+    setup backend
+
+[33mcommit 302fb8a100d3142b9248a96d26a17a64bb3bcaf5[m
+Author: Abdillah Mufki Auzan Mubin <abdillah.mufki@widyatama.ac.id>
+Date:   Mon May 27 21:56:06 2024 +0700
+
+    setup backend
+
+[33mcommit 1c95310d63f1b5081dcba71a607dae6abffc58af[m
+Merge: 2c8c0c8 7050756
+Author: Abdillah Mufki Auzan Mubin <93027141+abdillahmufki@users.noreply.github.com>
+Date:   Mon May 27 21:39:07 2024 +0700
+
+    Merge pull request #1 from abdillahmufki/dev
+    
+    first commit
+
+[33mcommit 7050756d87bcb0bae119b0a627e5633fa3f4efa7[m
+Author: Abdillah Mufki Auzan Mubin <abdillah.mufki@widyatama.ac.id>
+Date:   Mon May 27 21:22:35 2024 +0700
+
+    first commit
+
+[33mcommit 2c8c0c8eab495cf0291196d95309d19bd421da36[m
+Author: Abdillah Mufki Auzan Mubin <abdillah.mufki@widyatama.ac.id>
+Date:   Mon May 27 21:21:25 2024 +0700
+
+    first commit
