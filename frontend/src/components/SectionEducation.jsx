@@ -24,7 +24,7 @@ function SectionEducation() {
           earthquakes, safety tips, and seismology knowledge."
         />
         <section className="text-gray-600 body-font">
-          <div className="container px-5 p-5 mx-auto">
+          <div className="container px-5 p-5">
             <div className="grid md:grid-cols-3 gap-4 py-6">
               {posts.slice(0, 3).map((post) => (
                 <CardBlog

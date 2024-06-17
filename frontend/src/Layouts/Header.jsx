@@ -1,10 +1,33 @@
 "use client";
 
+import axios from "axios";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
+import { jwtDecode } from "jwt-decode";
+import { useEffect, useState } from "react";
 import { WiEarthquake } from "react-icons/wi";
 import { Link } from "react-router-dom";
 
 function Header() {
+  // const [name, setName] = useState("");
+  // const [token, setToken] = useState("");
+
+  // useEffect(() => {
+  //   refreshToken();
+  // }, []);
+
+  // const refreshToken = async () => {
+  //   try {
+  //     const response = await axios.get("http://localhost:4000/token", {
+  //       withCredentials: true,
+  //     });
+  //     setToken(response.data.accessToken);
+  //     const decode = jwtDecode(response.data.accessToken);
+  //     setName(decode.name);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   return (
     <Navbar fluid border className="fixed top-0 right-0 left-0 z-50">
       <Navbar.Brand as={Link}>
@@ -13,6 +36,48 @@ function Header() {
           PusGO
         </span>
       </Navbar.Brand>
+      {/* {token ? (
+        <div className="flex md:order-2">
+          <Dropdown
+            arrowIcon={false}
+            inline
+            label={
+              <Avatar
+                alt="User settings"
+                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                rounded
+              />
+            }
+          >
+            <Dropdown.Header>
+              <span className="block text-sm">{name}</span>
+              <span className="block truncate text-sm font-medium">email@gmail.com</span>
+            </Dropdown.Header>
+            <Dropdown.Item as={Link} to="/dashboard">Dashboard</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/settings">Settings</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/earnings">Earnings</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item onClick={logout}>Sign out</Dropdown.Item>
+          </Dropdown>
+          <Navbar.Toggle />
+        </div>
+      ) : (
+        <div className="flex md:order-2 items-center">
+          <Link
+            to="/login"
+            className="mr-1 rounded-lg px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800 md:mr-2 md:px-5 md:py-2.5"
+          >
+            Login
+          </Link>
+          <Link
+            to="/register"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Sign up
+          </Link>
+          <Navbar.Toggle />
+        </div>
+      )} */}
       <div className="flex md:order-2 items-center">
         <Link
           to="/login"
@@ -28,32 +93,6 @@ function Header() {
         </Link>
         <Navbar.Toggle />
       </div>
-      {/* <div className="flex md:order-2">
-        <Dropdown
-          arrowIcon={false}
-          inline
-          label={
-            <Avatar
-              alt="User settings"
-              img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-              rounded
-            />
-          }
-        >
-          <Dropdown.Header>
-            <span className="block text-sm">Bonnie Green</span>
-            <span className="block truncate text-sm font-medium">
-              name@flowbite.com
-            </span>
-          </Dropdown.Header>
-          <Dropdown.Item>Dashboard</Dropdown.Item>
-          <Dropdown.Item>Settings</Dropdown.Item>
-          <Dropdown.Item>Earnings</Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
-        </Dropdown>
-        <Navbar.Toggle />
-      </div> */}
       <Navbar.Collapse>
         <Navbar.Link
           as={Link}

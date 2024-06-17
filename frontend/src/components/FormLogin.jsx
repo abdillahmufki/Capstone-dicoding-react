@@ -13,10 +13,16 @@ function FormLogin() {
   const Auth = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:4000/login", {
-        email: email,
-        password: password,
-      });
+      await axios.post(
+        "http://localhost:4000/login",
+        {
+          email: email,
+          password: password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
       navigate("/");
     } catch (error) {
       if (error.response) {

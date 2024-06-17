@@ -38,33 +38,35 @@ function SectionFAQ() {
   ];
 
   return (
-    <section className="max-w-[1200px] mx-auto">
-      <HeaderSection
-        title="Frequently asked questions"
-        description="Welcome to our FAQ section! Here you'll find answers to common questions about earthquakes, safety tips, and seismology. If you have any other questions, feel free to contact us. We're here to help!"
-      />
-      <div>
-        <div className="w-[768px] mx-auto">
-          {faqs.map((faq, index) => (
-            <div key={index}>
-              <div
-                className="flex justify-between items-center border-b py-5 cursor-pointer"
-                onClick={() => onSelectEventHandler(index)}
-              >
-                <h2 className="text-base font-semibold">{faq.question}</h2>
-                <span>
-                  {selected === index ? <FaChevronUp /> : <FaChevronDown />}
-                </span>
+    <section className="bg-white dark:bg-gray-900">
+      <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+        <HeaderSection
+          title="Frequently asked questions"
+          description="Welcome to our FAQ section! Here you'll find answers to common questions about earthquakes, safety tips, and seismology. If you have any other questions, feel free to contact us. We're here to help!"
+        />
+        <div>
+          <div className="lg:w-[768px] mx-auto">
+            {faqs.map((faq, index) => (
+              <div key={index}>
+                <div
+                  className="flex justify-between items-center border-b py-5 cursor-pointer"
+                  onClick={() => onSelectEventHandler(index)}
+                >
+                  <h2 className="text-base font-semibold">{faq.question}</h2>
+                  <span>
+                    {selected === index ? <FaChevronUp /> : <FaChevronDown />}
+                  </span>
+                </div>
+                <div
+                  className={`text-base font-normal leading-normal py-5 ${
+                    selected === index ? "" : "sr-only"
+                  }`}
+                >
+                  {faq.answer}
+                </div>
               </div>
-              <div
-                className={`text-base font-normal leading-normal py-5 ${
-                  selected === index ? "" : "sr-only"
-                }`}
-              >
-                {faq.answer}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
