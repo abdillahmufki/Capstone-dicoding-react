@@ -12,15 +12,26 @@ const Report = db.define("Report", {
     type: DataTypes.STRING,
   },
   longitude: {
-    type: DataTypes.FLOAT, // Adjusted to FLOAT for numeric values
+    type: DataTypes.STRING,
+    defaultValue: "0.0", // Example default value
     allowNull: false,
   },
   latitude: {
-    type: DataTypes.FLOAT, // Adjusted to FLOAT for numeric values
+    type: DataTypes.STRING,
+    defaultValue: "0.0", // Example default value
     allowNull: false,
   },
   date: {
     type: DataTypes.DATE,
+  },
+  strength: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: "sedang", // Example default value
+  },
+  address: {
+    type: DataTypes.STRING, // Adjust data type according to your needs (e.g., DataTypes.TEXT)
+    allowNull: false,
   },
 });
 
