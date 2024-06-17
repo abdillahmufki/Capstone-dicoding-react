@@ -7,6 +7,7 @@ import {
 } from "../controllers/UsersController.js";
 import { verifyToken } from "../middleware/VerifyToken.js";
 import { refreshToken } from "../controllers/RefreshTokenController.js";
+import { createReport, getReports } from "../controllers/ReportController.js";
 
 const router = express.Router();
 
@@ -15,5 +16,9 @@ router.post("/users", Register);
 router.post("/login", Login);
 router.get("/token", refreshToken);
 router.delete("/logout", Logout);
+
+// Rute laporan gempa
+router.post("/reports", verifyToken, createReport);
+router.get("/reports", getReports);
 
 export default router;
