@@ -53,16 +53,29 @@ function FormLaporanUser() {
   const [coordinates, setCoordinates] = useState({ lat: "", lng: "" });
   const [address, setAddress] = useState("");
   const [magnitude, setMagnitude] = useState("");
+  const [deskripsi, setDeskripsi] = useState("");
 
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const entry = {
       latitude: coordinates.lat,
       longitude: coordinates.lng,
       address: address,
+      description: deskripsi,
       magnitude: magnitude,
     };
-    console.log("Data Terakhir Ditambahkan:", entry);
+
+    try {
+      // Langkah 3: Menggunakan Axios untuk mengirim data
+      const response = await axios.post('http://localhost:4000/reports', entry);
+      console.log("Data berhasil ditambahkan:", response.data);
+      // console.log("Data entry", entry);
+      // Opsi: Tambahkan logika untuk membersihkan form atau memberikan feedback ke pengguna
+    } catch (error) {
+      console.error("Terjadi kesalahan saat mengirim data:", error);
+      // Opsi: Tambahkan logika untuk menangani error
+    }
   };
 
   return (
@@ -132,6 +145,8 @@ function FormLaporanUser() {
           <input
             type="text"
             id="impact"
+            value={deskripsi}
+            onChange={(e) => setDeskripsi(e.target.value)}
             name="impact"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Contoh : Bangunan mengalami retak, tembok retak, tanah ambles"
