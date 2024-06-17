@@ -5,6 +5,7 @@ import axios from "axios";
 import "leaflet/dist/leaflet.css";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import Swal from 'sweetalert2';
 
 // Fix for default icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -71,6 +72,7 @@ function FormLaporanUser() {
     }
   };
 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const entry = {
@@ -78,22 +80,9 @@ function FormLaporanUser() {
       longitude: coordinates.lng,
       address: address,
       description: deskripsi,
-      magnitude: magnitude,
+      strength: magnitude,
     };
-
-    try {
-      const response = await axios.post(
-        "http://localhost:4000/reports",
-        entry,
-        {
-          withCredentials: true,
-        }
-      );
-      console.log("Data berhasil ditambahkan:", response.data);
-    } catch (error) {
-      console.error("Terjadi kesalahan saat mengirim data:", error);
-    }
-
+    console.log("data ", entry);
     try {
       const response = await axios.post(
         "http://localhost:4000/reports",
@@ -106,6 +95,18 @@ function FormLaporanUser() {
         }
       );
       console.log("Data berhasil ditambahkan:", response.data);
+      // Menampilkan SweetAlert sukses
+      Swal.fire({
+        title: 'Sukses!',
+        text: 'Laporan kamu sudah berhasil dikirim. Terima kasih atas informasinya, pahlawan!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+      // Mengatur ulang state
+      setCoordinates({ lat: "", lng: "" });
+      setAddress("");
+      setMagnitude("");
+      setDeskripsi("");
     } catch (error) {
       console.error("Terjadi kesalahan saat mengirim data:", error);
     }

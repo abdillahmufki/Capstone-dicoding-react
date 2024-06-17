@@ -4,7 +4,9 @@ import Report from "../models/ReportModel.js";
 export const createReport = async (req, res) => {
   try {
     const { description, longitude, latitude, strength, address } = req.body;
-
+    // console.log(
+    //   `${description} ${longitude} ${latitude} ${strength} ${address}`
+    // );
     // Validate required fields
     if (!description || !longitude || !latitude || !strength || !address) {
       return res

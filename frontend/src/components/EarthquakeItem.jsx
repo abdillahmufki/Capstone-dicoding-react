@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function EarthquakeItem({ index, Wilayah, Magnitude, Potensi, Jam, DateTime }) {
+function EarthquakeItem({ index, Wilayah, Magnitude, Jam, DateTime, pengirim }) {
+  const jam = new Date(DateTime).toLocaleTimeString("id-ID", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   return (
     <Link
       to={`/detailgempa/${index}`}
@@ -9,13 +14,13 @@ function EarthquakeItem({ index, Wilayah, Magnitude, Potensi, Jam, DateTime }) {
     >
       <h5 className="font-bold text-gray-900 dark:text-white">{Wilayah}</h5>
       <p className="text-gray-700 dark:text-gray-400">
-        Sumber Informasi : BMKG Indonesia
+        Sumber Informasi : {pengirim}
       </p>
       <p className="font-normal text-gray-700 dark:text-gray-400">
-        Magnitude: {Magnitude} - ({Potensi})
+        Tingkat gempa atau magnitude : {Magnitude}
       </p>
       <p className="font-normal text-gray-700 dark:text-gray-400">
-        Pukul : {Jam}
+        Pukul : {jam}
       </p>
       <p className="font-normal text-gray-700 dark:text-gray-400">
         Tanggal :{" "}
