@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { jwtDecode } from "jwt-decode";
 
+import { Navigate, Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import LandingPage from "./pages/LandingPage";
@@ -15,13 +13,42 @@ import AboutPage from "./pages/AboutPage";
 import DetailBlogPage from "./pages/DetailBlogPage";
 import Layout from "./Layouts/Layout";
 import NotFoundPage from "./pages/NotFoundPage";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 function App() {
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
+
+  // useEffect(() => {
+  //   refreshToken();
+  // }, []);
+
+  // const refreshToken = async () => {
+  //   try {
+  //     const response = await axios.get("http://localhost:4000/token", {
+  //       withCredentials: true,
+  //     });
+  //     setToken(response.data.accessToken);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // // Perbaikan: Fungsi ini sekarang memeriksa apakah token ada
+  // const checkRefreshTokenAvailable = () => {
+  //   return token !== "";
+  // };
+
+  // // Komponen ProtectedRoute
+  // const ProtectedRoute = ({ element: Component, ...rest }) => {
+  //   const isRefreshTokenAvailable = checkRefreshTokenAvailable();
+  //   return isRefreshTokenAvailable ? <Component {...rest} /> : <Navigate to="/login" />;
+  // };
+
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(true); // New loading state
-  const navigate = useNavigate(); // Use useNavigate for programmatic navigation
+  const [token, setToken] = useState("");
 
   useEffect(() => {
     refreshToken();
@@ -32,18 +59,12 @@ function App() {
       const response = await axios.get("http://localhost:4000/token", {
         withCredentials: true,
       });
-      const accessToken = response.data.accessToken;
-      setToken(accessToken);
-
-      const decode = jwtDecode(accessToken);
+      setToken(response.data.accessToken);
+      const decode = jwtDecode(response.data.accessToken);
       setName(decode.name);
       setEmail(decode.email);
-
-      console.log("token : ", response);
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false); // Set loading to false once the token is refreshed
     }
   };
 
@@ -55,35 +76,23 @@ function App() {
       setToken("");
       setName("");
       setEmail("");
-      navigate("/login");
+      Navigate("/login");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const checkRefreshTokenAvailable = () => {
-    return token !== "";
-  };
-
-  const ProtectedRoute = ({ element: Component, ...rest }) => {
-    if (loading) {
-      return <div>Loading...</div>; // Display a loading indicator while loading
-    }
-    const isRefreshTokenAvailable = checkRefreshTokenAvailable();
-    return isRefreshTokenAvailable ? <Component {...rest} /> : <Navigate to="/login" />;
-  };
-
   return (
     <Routes>
-      <Route path="/" element={<Layout logout={logout} />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<LandingPage />} />
-        <Route path="earthquake-information" element={<ProtectedRoute element={InformationPage} />} />
-        <Route path="earthquake-reports" element={<ProtectedRoute element={ReportPage} />} />
-        <Route path="donation-platform" element={<ProtectedRoute element={DonationPage} />} />
-        <Route path="education" element={<ProtectedRoute element={EducationPage} />} />
-        <Route path="contact" element={<ProtectedRoute element={ContactPage} />} />
-        <Route path="about" element={<ProtectedRoute element={AboutPage} />} />
-        <Route path="education/:slug" element={<ProtectedRoute element={DetailBlogPage} />} />
+        <Route path="earthquake-information" element={<InformationPage />} />
+        <Route path="/earthquake-reports" element={<ReportPage />} />
+        <Route path="donation-platform" element={<DonationPage />} />
+        <Route path="education" element={<EducationPage />} />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="education/:slug" element={<DetailBlogPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
