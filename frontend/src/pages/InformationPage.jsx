@@ -5,14 +5,32 @@ import PageHeader from "../components/PageHeader";
 import EarthquakeItem from "../components/EarthquakeItem";
 
 function InformationPage() {
-  const [data, setData] = useState(null);
+  const [localData, setLocalData] = useState(null); // For local earthquake reports
+  const [bmkgData, setBmkgData] = useState(null); // For BMKG earthquake data
 
+  // Fetch local earthquake data
+  useEffect(() => {
+    fetch("http://localhost:4000/reports")
+      .then((response) => response.json())
+      .then((data) => {
+        setLocalData(data);
+        console.log(data); // Log the data to the console
+      })
+      .catch((error) => {
+        console.error("Error fetching local earthquake data:", error);
+      });
+  }, []);
+
+  // Fetch BMKG earthquake data
   useEffect(() => {
     fetch("https://data.bmkg.go.id/DataMKG/TEWS/gempaterkini.json")
       .then((response) => response.json())
       .then((data) => {
-        setData(data);
-        console.log(data); // Log the data to the console
+        setBmkgData(data.Infogempa.gempa);
+        console.log(data.Infogempa.gempa); // Log the data to the console
+      })
+      .catch((error) => {
+        console.error("Error fetching BMKG earthquake data:", error);
       });
   }, []);
 
@@ -25,53 +43,81 @@ function InformationPage() {
               pageName="Information Earthquake"
               pageDescription="Stay informed with the latest updates and comprehensive data on earthquakes worldwide. Our platform provides real-time alerts, historical data, and detailed analysis to help you understand and prepare for seismic events."
             />
-            <div className="w-full md:w-8/12 h-[400px] rounded md:p-4">
+            <div className="w-full md:w-8/12 h-[400px] md:h-auto rounded md:p-4">
               <MapContainer
                 center={[-0.789275, 113.921327]}
                 zoom={4}
-                className="md:h-[calc(100vh-180px)] z-10 rounded"
+                className="h-full md:h-[calc(100vh-180px)] z-10 rounded"
               >
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                {data &&
-                  data.Infogempa.gempa.map((earthquake) => (
+                {localData &&
+                  localData.map((earthquake) => (
                     <Marker
-                      key={earthquake.Wilayah}
-                      position={earthquake.Coordinates.split(",").map(Number)}
+                      key={earthquake.id}
+                      position={[parseFloat(earthquake.latitude), parseFloat(earthquake.longitude)]}
+                    >
+                      <Popup>
+                        <h3 className="font-bold">{earthquake.address}</h3>
+                        Pelapor : User
+                        <br />
+                        Strength: {earthquake.strength}
+                        <br />
+                        Description: {earthquake.description}
+                        <br />
+                        Date: {new Date(earthquake.createdAt).toLocaleDateString("id-ID", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </Popup>
+                    </Marker>
+                  ))}
+                {bmkgData &&
+                  bmkgData.map((earthquake) => (
+                    <Marker
+                      key={earthquake.Jam}
+                      position={[parseFloat(earthquake.Lintang), parseFloat(earthquake.Bujur)]}
                     >
                       <Popup>
                         <h3 className="font-bold">{earthquake.Wilayah}</h3>
                         Pelapor : BMKG Indonesia
                         <br />
-                        Magnitude: {earthquake.Magnitude}
+                        Magnitude: {earthquake.Magnitude} Mg
                         <br />
-                        Pukul : {earthquake.Jam}
-                        <br />
-                        Tanggal:{" "}
-                        {new Date(earthquake.DateTime).toLocaleDateString(
-                          "id-ID",
-                          {
-                            day: "numeric",
-                            month: "long",
-                            year: "numeric",
-                          }
-                        )}
+                        Date: {new Date(earthquake.Tanggal).toLocaleDateString("id-ID", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
                       </Popup>
                     </Marker>
                   ))}
               </MapContainer>
             </div>
             <div className="w-full md:w-4/12 md:p-4 h-full">
-              <div className="md:h-[calc(100vh-180px)] overflow-y-scroll flex flex-col gap-2">
-                {data &&
-                  data.Infogempa.gempa.map((earthquake, index) => (
+              <div className="h-[400px] md:h-[calc(100vh-180px)] overflow-y-scroll flex flex-col gap-2">
+                {localData &&
+                  localData.map((earthquake, index) => (
                     <EarthquakeItem
                       key={index}
                       index={index}
+                      pengirim={"Masyarakat setempat"}
+                      Wilayah={earthquake.address}
+                      Magnitude={earthquake.strength}
+                      Jam={earthquake.createdAt}
+                      DateTime={earthquake.createdAt}
+                    />
+                  ))}
+                {bmkgData &&
+                  bmkgData.map((earthquake, index) => (
+                    <EarthquakeItem
+                      key={index}
+                      index={index}
+                      pengirim={"BMKG"}
                       Wilayah={earthquake.Wilayah}
                       Magnitude={earthquake.Magnitude}
-                      Potensi={earthquake.Potensi}
                       Jam={earthquake.Jam}
-                      DateTime={earthquake.DateTime}
+                      DateTime={earthquake.Tanggal}
                     />
                   ))}
               </div>

@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import UserInput from "../hooks/UserInput";
 import { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function FormLogin() {
   const [email, onEmailChange] = UserInput("");
@@ -13,12 +14,33 @@ function FormLogin() {
   const Auth = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:4000/login", {
-        email: email,
-        password: password,
+      await axios.post(
+        "http://localhost:4000/login",
+        {
+          email: email,
+          password: password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      // Langkah 2: Tampilkan Sweet Alert
+      Swal.fire({
+        icon: 'success',
+        title: 'Login Berhasil',
+        text: 'Selamat datang di PusGO.',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/");
+        }
       });
-      navigate("/");
     } catch (error) {
+      // Menampilkan Sweet Alert saat login gagal
+      Swal.fire({
+        icon: 'error',
+        title: 'Mohon maaf periksa kembali email dan password kamu',
+        text: error.response ? error.response.data.msg : 'Terjadi kesalahan, silakan coba lagi.',
+      });
       if (error.response) {
         setMsg(error.response.data.msg);
       }

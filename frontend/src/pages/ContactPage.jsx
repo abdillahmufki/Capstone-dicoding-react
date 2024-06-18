@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2'; // SweetAlert import
 import PageHeader from "../components/PageHeader";
 
 function ContactPage() {
@@ -10,15 +9,25 @@ function ContactPage() {
 
   useEffect(() => {
     if (state.succeeded && !alertShown) {
-      toast.success("Terima kasih! Pesan Anda telah terkirim.");
-      setAlertShown(true);
-      resetForm();
+      Swal.fire({
+        title: 'Success!',
+        text: 'Terima kasih! Pesan Anda telah terkirim.',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      }).then(() => {
+        // Reset state input secara manual di sini jika resetForm() tidak efektif
+        // Misalnya, jika Anda memiliki state untuk 'name', 'email', dan 'message':
+        // setName('');
+        // setEmail('');
+        // setMessage('');
+        setAlertShown(true);
+        resetForm(); // Coba panggil resetForm() lagi di sini
+      });
     }
   }, [state.succeeded, alertShown, resetForm]);
 
   return (
     <main>
-      <ToastContainer />
       <section className="bg-white dark:bg-gray-900">
         <div className="mx-auto sm:px-6 lg:py-20 max-w-4xl px-6 py-12 sm:py-16">
           <PageHeader

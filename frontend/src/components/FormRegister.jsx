@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import UserInput from "../hooks/UserInput";
 import axios from "axios";
 import { useState } from "react";
+import Swal from 'sweetalert2';
 
 function FormRegister() {
   const [name, onNameChange] = UserInput("");
@@ -21,10 +22,23 @@ function FormRegister() {
         password: password,
         confPassword: confPassword,
       });
+      // Use SweetAlert for success message
+      Swal.fire({
+        icon: 'success',
+        title: 'Registration successful!',
+        showConfirmButton: false,
+        timer: 1500
+      });
       navigate("/login");
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);
+        // Use SweetAlert for error message
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.response.data.msg,
+        });
       }
     }
   };

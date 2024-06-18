@@ -5,6 +5,7 @@ import axios from "axios";
 import "leaflet/dist/leaflet.css";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import Swal from 'sweetalert2';
 
 // Fix for default icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -53,16 +54,62 @@ function FormLaporanUser() {
   const [coordinates, setCoordinates] = useState({ lat: "", lng: "" });
   const [address, setAddress] = useState("");
   const [magnitude, setMagnitude] = useState("");
+  const [deskripsi, setDeskripsi] = useState("");
+  const [token, setToken] = useState("");
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    refreshToken();
+  }, []);
+
+  const refreshToken = async () => {
+    try {
+      const response = await axios.get("http://localhost:4000/token", {
+        withCredentials: true,
+      });
+      setToken(response.data.accessToken);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const entry = {
       latitude: coordinates.lat,
       longitude: coordinates.lng,
       address: address,
-      magnitude: magnitude,
+      description: deskripsi,
+      strength: magnitude,
     };
-    console.log("Data Terakhir Ditambahkan:", entry);
+    console.log("data ", entry);
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/reports",
+        entry,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
+      console.log("Data berhasil ditambahkan:", response.data);
+      // Menampilkan SweetAlert sukses
+      Swal.fire({
+        title: 'Sukses!',
+        text: 'Laporan kamu sudah berhasil dikirim. Terima kasih atas informasinya, pahlawan!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+      // Mengatur ulang state
+      setCoordinates({ lat: "", lng: "" });
+      setAddress("");
+      setMagnitude("");
+      setDeskripsi("");
+    } catch (error) {
+      console.error("Terjadi kesalahan saat mengirim data:", error);
+    }
   };
 
   return (
@@ -132,6 +179,8 @@ function FormLaporanUser() {
           <input
             type="text"
             id="impact"
+            value={deskripsi}
+            onChange={(e) => setDeskripsi(e.target.value)}
             name="impact"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Contoh : Bangunan mengalami retak, tembok retak, tanah ambles"

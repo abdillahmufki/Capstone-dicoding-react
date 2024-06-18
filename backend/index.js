@@ -1,3 +1,4 @@
+// server.js
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -8,15 +9,19 @@ import cookieParser from "cookie-parser";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-import Users from "./models/UserModel.js";
+const PORT = process.env.PORT || 4000;
 
 try {
-  db.authenticate();
-  console.log("Connection has been established successfully.");
+  await db.authenticate();
+  console.log("Connection to the database has been established successfully.");
 } catch (err) {
   console.error("Unable to connect to the database:", err);
 }
+
+(async () => {
+  await db.sync();
+  console.log("Database Synced");
+})();
 
 app.use(
   cors({

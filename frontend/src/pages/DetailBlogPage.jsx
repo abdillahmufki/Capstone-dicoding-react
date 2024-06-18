@@ -20,7 +20,7 @@ async function getData(slug) {
 
 const PortableTextComponents = {
   types: {
-    image: ({ value }) => <img src={value.imageUrl} />,
+    image: ({ value }) => <img src={value.imageUrl} alt="image" />,
     callToAction: ({ value, isInline }) =>
       isInline ? (
         <a href={value.url}>{value.text}</a>
@@ -28,7 +28,32 @@ const PortableTextComponents = {
         <div className="callToAction">{value.text}</div>
       ),
   },
-
+  block: {
+    h1: ({ children }) => (
+      <h1 className="text-[38px] font-bold my-4">{children}</h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="text-[33px] font-semibold my-4">{children}</h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="text-[27px] font-medium my-4">{children}</h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="text-[21px] font-medium my-4">{children}</h4>
+    ),
+    h5: ({ children }) => (
+      <h5 className="text-[16px] font-medium my-4">{children}</h5>
+    ),
+    h6: ({ children }) => (
+      <h6 className="text-[13px] font-medium my-4">{children}</h6>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote className="border-l-4 border-gray-500 pl-4 italic my-4">
+        {children}
+      </blockquote>
+    ),
+    normal: ({ children }) => <p className="text-[15px] my-4">{children}</p>,
+  },
   marks: {
     link: ({ children, value }) => {
       const rel = !value.href.startsWith("/")
