@@ -58,10 +58,7 @@ function Header() {
   return (
     <Navbar fluid border className="fixed top-0 right-0 left-0 z-50">
       <Navbar.Brand as={Link}>
-        <WiEarthquake className="w-8 h-8" />
-        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-          PusGO
-        </span>
+        <img src="/Pusgo.png" width={100}></img>
       </Navbar.Brand>
       <div className="flex md:order-2 items-center">
         {token ? (
