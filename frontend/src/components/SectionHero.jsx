@@ -44,7 +44,7 @@ function SectionHero() {
           <div className="basis-1/2">
             <img
               className="object-cover"
-              src="https://cdn.pixabay.com/photo/2018/02/20/13/46/earthquake-3167693_1280.jpg"
+              src="/hero-img.jpg"
               alt="mockup"
             />
           </div>
