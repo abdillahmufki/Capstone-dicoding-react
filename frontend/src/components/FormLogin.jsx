@@ -35,6 +35,12 @@ function FormLogin() {
         }
       });
     } catch (error) {
+      // Menampilkan Sweet Alert saat login gagal
+      Swal.fire({
+        icon: 'error',
+        title: 'Mohon maaf periksa kembali email dan password kamu',
+        text: error.response ? error.response.data.msg : 'Terjadi kesalahan, silakan coba lagi.',
+      });
       if (error.response) {
         setMsg(error.response.data.msg);
       }
