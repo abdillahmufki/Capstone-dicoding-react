@@ -14,7 +14,6 @@ function InformationPage() {
       .then((response) => response.json())
       .then((data) => {
         setLocalData(data);
-        console.log(data); // Log the data to the console
       })
       .catch((error) => {
         console.error("Error fetching local earthquake data:", error);
@@ -27,7 +26,6 @@ function InformationPage() {
       .then((response) => response.json())
       .then((data) => {
         setBmkgData(data.Infogempa.gempa);
-        console.log(data.Infogempa.gempa); // Log the data to the console
       })
       .catch((error) => {
         console.error("Error fetching BMKG earthquake data:", error);
@@ -54,7 +52,10 @@ function InformationPage() {
                   localData.map((earthquake) => (
                     <Marker
                       key={earthquake.id}
-                      position={[parseFloat(earthquake.latitude), parseFloat(earthquake.longitude)]}
+                      position={[
+                        parseFloat(earthquake.latitude),
+                        parseFloat(earthquake.longitude),
+                      ]}
                     >
                       <Popup>
                         <h3 className="font-bold">{earthquake.address}</h3>
@@ -64,11 +65,15 @@ function InformationPage() {
                         <br />
                         Description: {earthquake.description}
                         <br />
-                        Date: {new Date(earthquake.createdAt).toLocaleDateString("id-ID", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                        })}
+                        Date:{" "}
+                        {new Date(earthquake.createdAt).toLocaleDateString(
+                          "id-ID",
+                          {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                          }
+                        )}
                       </Popup>
                     </Marker>
                   ))}
@@ -76,7 +81,10 @@ function InformationPage() {
                   bmkgData.map((earthquake) => (
                     <Marker
                       key={earthquake.Jam}
-                      position={[parseFloat(earthquake.Lintang), parseFloat(earthquake.Bujur)]}
+                      position={[
+                        parseFloat(earthquake.Lintang),
+                        parseFloat(earthquake.Bujur),
+                      ]}
                     >
                       <Popup>
                         <h3 className="font-bold">{earthquake.Wilayah}</h3>
@@ -84,11 +92,15 @@ function InformationPage() {
                         <br />
                         Magnitude: {earthquake.Magnitude} Mg
                         <br />
-                        Date: {new Date(earthquake.Tanggal).toLocaleDateString("id-ID", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                        })}
+                        Date:{" "}
+                        {new Date(earthquake.Tanggal).toLocaleDateString(
+                          "id-ID",
+                          {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                          }
+                        )}
                       </Popup>
                     </Marker>
                   ))}
