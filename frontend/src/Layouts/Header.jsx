@@ -6,12 +6,14 @@ import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { WiEarthquake } from "react-icons/wi";
 import { Link, Navigate } from "react-router-dom";
+import Swal from 'sweetalert2'; // Langkah 1: Impor Swal
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [token, setToken] = useState("");
-
+  const navigate = useNavigate();
   useEffect(() => {
     refreshToken();
   }, []);
@@ -38,7 +40,16 @@ function Header() {
       setToken("");
       setName("");
       setEmail("");
-      Navigate("/login");
+      // Langkah 2: Tampilkan Sweet Alert
+      Swal.fire({
+        icon: 'success',
+        title: 'Logout Berhasil',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(() => {
+        // Langkah 3: Navigasi setelah Sweet Alert
+        navigate("/login");
+      });
     } catch (error) {
       console.log(error);
     }
