@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@formspree/react": "^2.5.1",
-    "react-loader-spinner": "^6.1.6",
-    "react-toastify": "^10.0.5"
-  }
-}
