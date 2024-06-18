@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import UserInput from "../hooks/UserInput";
 import { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function FormLogin() {
   const [email, onEmailChange] = UserInput("");
@@ -23,7 +24,16 @@ function FormLogin() {
           withCredentials: true,
         }
       );
-      navigate("/");
+      // Langkah 2: Tampilkan Sweet Alert
+      Swal.fire({
+        icon: 'success',
+        title: 'Login Berhasil',
+        text: 'Selamat datang di PusGO.',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/");
+        }
+      });
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);

@@ -2,8 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import UserInput from "../hooks/UserInput";
 import axios from "axios";
 import { useState } from "react";
-import { toast } from 'react-toastify'; // Langkah 2: Impor React Toastify
-import 'react-toastify/dist/ReactToastify.css'; // Impor CSS untuk React Toastify
+import Swal from 'sweetalert2';
 
 function FormRegister() {
   const [name, onNameChange] = UserInput("");
@@ -23,12 +22,23 @@ function FormRegister() {
         password: password,
         confPassword: confPassword,
       });
-      toast.success("Registration successful!"); // Langkah 4: Tampilkan toast pada sukses
+      // Use SweetAlert for success message
+      Swal.fire({
+        icon: 'success',
+        title: 'Registration successful!',
+        showConfirmButton: false,
+        timer: 1500
+      });
       navigate("/login");
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);
-        toast.error(error.response.data.msg); // Tampilkan toast jika terjadi error
+        // Use SweetAlert for error message
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.response.data.msg,
+        });
       }
     }
   };
