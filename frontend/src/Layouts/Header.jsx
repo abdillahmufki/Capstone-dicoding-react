@@ -48,7 +48,7 @@ function Header() {
         timer: 1500
       }).then(() => {
         // Langkah 3: Navigasi setelah Sweet Alert
-        navigate("/login");
+        navigate("/");
       });
     } catch (error) {
       console.log(error);
