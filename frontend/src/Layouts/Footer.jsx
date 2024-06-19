@@ -1,5 +1,6 @@
 import React from "react";
 import { WiEarthquake } from "react-icons/wi";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -20,41 +21,38 @@ function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Follow us
+                Report
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a
-                    href="https://github.com/themesberg/flowbite"
-                    className="hover:underline "
-                  >
-                    Github
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://discord.gg/4eeurUVvTy"
-                    className="hover:underline"
-                  >
-                    Discord
-                  </a>
+                  <Link to="/contact" className="hover:underline">
+                    Contact Us
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Legal
+                Services
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Privacy Policy
-                  </a>
+                  <Link
+                    to="/earthquake-information"
+                    className="hover:underline"
+                  >
+                    Earthquake Information
+                  </Link>
                 </li>
-                <li>
-                  <a href="#" className="hover:underline">
-                    Terms &amp; Conditions
-                  </a>
+                <li className="mb-4">
+                  <Link to="/earthquake-reports" className="hover:underline">
+                    Earthquake Reports
+                  </Link>
+                </li>
+                <li className="mb-4">
+                  <Link to="/donation-platform" className="hover:underline">
+                    Donation Platform
+                  </Link>
                 </li>
               </ul>
             </div>
